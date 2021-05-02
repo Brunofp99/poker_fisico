@@ -1,21 +1,19 @@
 import React, { useState } from 'react'
 import Slider from 'react-input-slider'
-import { Container, Count } from './style'
+import { Container, Count, Input } from './style'
 
 
-function SliderComponent() {
+function SliderComponent({controller = () =>{}, valueMax = 100, valueMin = 0}) {
   let [valorSlider, setValorSlider] = useState({valor: 0})
+  let max = valueMax // - valorSlider.valor
+  let min = valueMin
+  let inicialValue = valorSlider.valor
+
+  controller(valorSlider)
   return (
     <Container>
-      <Slider
-        axis="y"
-        ystep={1}
-        ymin={0}
-        ymax={100}
-        y={valorSlider.valor}
-        onChange={({ y }) => setValorSlider({ valor: parseFloat(y.toFixed(2)) })}
-      />
       <Count>{valorSlider.valor}</Count>
+      <Input type="range" value={inicialValue} min={min} max={max} onChange={(e) => setValorSlider({ valor: parseFloat(e.target.value) })}/>
     </Container>
   )
 }
