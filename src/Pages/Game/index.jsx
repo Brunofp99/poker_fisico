@@ -5,103 +5,38 @@ import {
   Column, 
   Row, 
   Div, 
-  ControllerDiv, 
-  ControllerDivBotton, 
-  Cards, 
-  BettingButton, 
-  AllIn, 
-  Fold
+  CardControll, 
+  Cards
 } from './style'
 import Card from '../../Components/Card'
-import Slider from '../../Components/Slider'
 import UserCard from '../../Components/UserCard'
+import UserPanel from '../../Components/userPanel'
+import Actions from '../../Components/Actions'
+import Table from '../../Components/Table'
 import img from '../../Images/costas.jpg'
-import Helio from '../../Images/HelioTakai.jpg'
+import tableimg from '../../Images/table.png'
 
 function Game() {
-  // const [carta, setCarta] = useState({carta1: '', carta2: '', valor: ''})
+  const [rounds, setRounds] = useState({Round: 0})
 
-  // let numeroRandom1 = Math.floor(Math.random() * 55 + 1),
-  //   numeroRandom2 = Math.floor(Math.random() * 55 + 1)
-
-
-  const funcaoApostar = ()=>{
-
-  }
-
-  const funcaoApostarTudo = ()=>{
-
-  }
-
-  const funcaoDesistir = ()=>{
-
-  }
 
   return (
     <Container>
       <View>
 
-        {/* player top */}
-        <Row>
-          <Cards>
-            <Card image={img}></Card>
-            <Card image={img}></Card>
-            {/* <BettingButton /> */}
-          </Cards>
-        </Row>
-
-        {/* player left */}
-        <Column>
-          <Cards>
-            {/* <BettingButton /> */}
-            <Card image={img}></Card>
-            <Card image={img}></Card>
-          </Cards>
-        </Column>
-
         {/* table  */}
         <Column>
-          <Div>
-            <ControllerDiv>
-              <Card image={img}></Card>
-              <Card image={img}></Card>
-              <Card image={img}></Card>
-              <Card image={img}></Card>
-              <Card image={img}></Card>
-              <Card image={img}></Card>
-              {/* { 5 vezes cartas
-                cartas.map()
-              } */}
-            </ControllerDiv>
-          </Div>
+          <Table />
         </Column>
+        
+        <CardControll>
+          <UserCard />
+          <UserCard />
+          <UserPanel />
+        </CardControll>
 
-        {/* player right  */}
-        <Column>
-          <Cards>
-            <Card image={img}></Card>
-            <Card image={img}></Card>
-          </Cards>
-          <Card img={Helio}></Card>
-        </Column>
-
-        {/* player botton  */}
-        <Row> 
-          <Cards>
-            <ControllerDivBotton>
-
-              <UserCard />
-
-              <div>
-                <BettingButton onClick={funcaoApostar}>Apostar</BettingButton>
-                <AllIn onClick={funcaoApostarTudo}>All in</AllIn>
-                <Fold onClick={funcaoDesistir}>Desistir</Fold>
-              </div>
-
-              <Slider />
-
-            </ControllerDivBotton>
-          </Cards>
+        <Row>
+          <Actions />
         </Row>
 
       </View>
