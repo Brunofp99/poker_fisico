@@ -21,3 +21,9 @@ export const CardCompetitor = styled.div`
   margin-top: 84px;
   border-radius: 10px;
 `
+export const Break = styled.div`
+  flex-basis: 100%;
+  height: 1px;
+  background-color: #F7F7F7;
+  box-shadow: 5px 1px 17px #ffffff;
+`

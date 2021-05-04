@@ -23,22 +23,12 @@ function Game() {
   return (
     <Container>
       <View>
-
-        {/* table  */}
         <Column>
           <Table />
         </Column>
-        
-        <CardControll>
-          <UserCard />
-          <UserCard />
-          <UserPanel />
-        </CardControll>
-
         <Row>
           <Actions />
         </Row>
-
       </View>
     </Container>
   )

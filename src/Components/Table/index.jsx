@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Image, CardsOnTable } from './style'
 import TableImage from '../../Images/table.png'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
 
 function Table({ bet = 0 }) {
+  const [state, setstate] = useState()
   return (
     <Container>
       {/* player left */}

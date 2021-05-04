@@ -13,7 +13,7 @@ function SliderComponent({controller = () =>{}, valueMax = 100, valueMin = 0}) {
   return (
     <Container>
       <Count>{valorSlider.valor}</Count>
-      <Input type="range" value={inicialValue} min={min} max={max} onChange={(e) => setValorSlider({ valor: parseFloat(e.target.value) })}/>
+      <Input type="range" value={inicialValue} min={min} max={max} onChange={(e) => setValorSlider({ valor: parseFloat(e.target.value) })}/>1
     </Container>
   )
 }

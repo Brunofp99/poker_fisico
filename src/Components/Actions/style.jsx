@@ -19,8 +19,8 @@ export const Counter = styled.div`
 `
 
 export const BettingButton = styled.button`
-  width: 170px;
-  height: 60px;
+  width: 80%;
+  height: 90%;
   border-radius: 5px;
   font-size: 40px;
   font-weight: 800;
@@ -30,11 +30,12 @@ export const BettingButton = styled.button`
   cursor: pointer;
   margin-bottom: 5px;
   margin-top: 5px;
+  margin-right: 1%;
 `
 
 export const AllIn = styled.button`
-  width: 170px;
-  height: 60px;
+  width: 80%;
+  height: 90%;
   border-radius: 5px;
   font-size: 40px;
   font-weight: 1000;
@@ -44,11 +45,12 @@ export const AllIn = styled.button`
   color: white;
   margin-bottom: 5px;
   margin-top: 5px;
+  margin-right: 1%;
 `
 
 export const Fold = styled.button`
-  width: 170px;
-  height: 60px;
+  width: 80%;
+  height: 90%;
   border-radius: 5px;
   font-size: 40px;
   font-weight: 1000;
@@ -57,4 +59,9 @@ export const Fold = styled.button`
   cursor: pointer;
   color: white;  
   margin-top: 5px;
+  margin-right: 1%;
+`
+
+export const SliderControll = styled.div`
+  width: 80%;
 `

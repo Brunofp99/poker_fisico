@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, CardCompetitor } from './style'
+import { Container, CardCompetitor, Break } from './style'
 import Card from '../Card'
 
 function Competitors({name = 'LHC', left = '', right = '', top = '', energy = '1.000', bottom = '6%'}) {
@@ -24,7 +24,7 @@ function Competitors({name = 'LHC', left = '', right = '', top = '', energy = '1
         </div>
         <CardCompetitor>
           <label htmlFor="">{name}</label>
-            <div className="break" style={{'flex-basis': '100%', 'height': '1px', 'background-color': '#F7F7F7',  'box-shadow': '5px 1px 17px #ffffff'}}></div>
+            <Break />
           <label htmlFor="">{energy}</label>
         </CardCompetitor>
       </Container>

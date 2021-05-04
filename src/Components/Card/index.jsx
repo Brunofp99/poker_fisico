@@ -13,7 +13,7 @@ function Card({ image = costas, name, leftRotate = false, rightRotate = false, b
   } 
 
   return (
-    <Container background={{main: 'white'}} theme={{rotate: deg, margin: margin, bottom: bottom}}>
+    <Container background={{main: 'transparent'}} theme={{rotate: deg, margin: margin, bottom: bottom}}>
       <Image src={image} alt=""/>
     </Container>
   )
