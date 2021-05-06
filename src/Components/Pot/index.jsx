@@ -8,7 +8,7 @@ function Pot({bet = 0}) {
 
   return (
     <Container>
-        <div>Pot:</div>
+        <span>Pot:</span>
         { total }
     </Container>
   )

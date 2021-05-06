@@ -1,12 +1,19 @@
 import React from 'react'
 import { Container, Image } from './style'
-import costas from '../../Images/costas.jpg'
+import { cartas } from '../../Images'
 
-function CardsTable({ image = '', name}) {
+function CardsTable({ index = null, classControll }) {
 
   return (
-    <Container>
-      <Image src={costas} alt=""/>
+    <Container hidden={classControll}>
+      {
+        cartas.map((value, i, array)=>{
+          if (i === index && value.info !== true) {
+            return <Image src={value.image} alt=""/>
+          }
+        })
+
+      }
     </Container>
   )
 }

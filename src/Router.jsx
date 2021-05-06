@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import PickPlayer from './Pages/PickPlayer'
+// import PickPlayer from './Pages/PickPlayer'
 import Game from './Pages/Game'
 import UserCard from './Components/UserCard'
 import UserPanel from './Components/userPanel'
@@ -10,10 +10,10 @@ export default function router() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <PickPlayer />
-        </Route>
-        <Route path="/game">
+        </Route> */}
+        <Route path="/">
           <Game />
           <CardControll>
           <UserCard />

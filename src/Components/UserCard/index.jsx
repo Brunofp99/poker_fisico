@@ -5,10 +5,6 @@ import { useController } from '../../Providers/Controller'
 
 function UserCard() {
   let numeroRandom1, numeroRandom2
-
-  
-  console.log(cartas)
-
   
   const { data, setData } = useController()
   
@@ -19,14 +15,13 @@ function UserCard() {
     numeroRandom1 = dataStorage.cardOne
     numeroRandom2 = dataStorage.cardTwo
   } else {
-    numeroRandom1 = Math.floor(Math.random() * 55 + 1)
-    numeroRandom2 = Math.floor(Math.random() * 55 + 1)
+    numeroRandom1 = Math.floor(Math.random() * 52 + 1)
+    numeroRandom2 = Math.floor(Math.random() * 52 + 1)
     
     if (numeroRandom1 === numeroRandom2) {
-      numeroRandom1 = Math.floor(Math.random() * 55 + 1)
-      numeroRandom2 = Math.floor(Math.random() * 55 + 1)
+      numeroRandom2 = Math.floor(Math.random() * 52 + 1)
     }
-    setData({cardOne: numeroRandom1, cardTwo: numeroRandom2});
+    setData({...data, cardOne: numeroRandom1, cardTwo: numeroRandom2});
     localStorage.setItem('cards', JSON.stringify({cardOne: numeroRandom1, cardTwo: numeroRandom2}))
   }
 

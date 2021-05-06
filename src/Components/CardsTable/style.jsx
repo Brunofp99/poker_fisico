@@ -12,5 +12,4 @@ export const Container = styled.div`
   min-width: 140px;
   background-color: white;
   border-radius: 5px;
-  transition: 0.7s;
 `

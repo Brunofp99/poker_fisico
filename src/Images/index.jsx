@@ -37,8 +37,6 @@ import downBlue from './Cartas/downBlue.png'
 import downGreen from './Cartas/downGreen.png'
 import downRed from './Cartas/downRed.png'
 import eletron from './Cartas/eletron.png'
-import explicativoNomeParticulas from './Cartas/explicativoNomeParticulas.png'
-import informativoUniao from './Cartas/informativoUniao.png'
 import muon from './Cartas/muon.png'
 import neutrinoEletron from './Cartas/neutrinoEletron.png'
 import neutrinoMuon from './Cartas/neutrinoMuon.png'
@@ -53,7 +51,9 @@ import topRed from './Cartas/topRed.png'
 import upGreen from './Cartas/upGreen.png'
 import upRed from './Cartas/upRed.png'
 import upBlue from './Cartas/upBlue.png'
-import valoresCoresAntiCores from './Cartas/valoresCoresAntiCores.png'
+import explicativoNomeParticulas from './Cartas/explicativoNomeParticulas.png' // info 39 - 53
+import informativoUniao from './Cartas/informativoUniao.png' // info 40 - 54
+import valoresCoresAntiCores from './Cartas/valoresCoresAntiCores.png' // info 54
 
 export const cartas = [
   {  
@@ -246,18 +246,17 @@ export const cartas = [
     name: 'eletron',
     image: eletron
   },
-  {
-    id: 39,
-    name: 'explicativoNomeParticulas',
-    image: explicativoNomeParticulas,
-    info: true
+  {  
+    id: 39, 
+    name: 'upRed', 
+    image: upRed 
   },
-  {
+  {  
     id: 40, 
-    name: 'informativoUniao', 
-    image: informativoUniao,
-    info: true
+    name: 'upBlue', 
+    image: upBlue 
   },
+  
   {  
     id: 41, 
     name: 'muon', 
@@ -318,20 +317,23 @@ export const cartas = [
     name: 'upGreen', 
     image: upGreen 
   },
-  {  
-    id: 53, 
-    name: 'upRed', 
-    image: upRed 
+  
+  {
+    id: 53,
+    name: 'explicativoNomeParticulas',
+    image: explicativoNomeParticulas,
+    info: true
   },
-  {  
+  {
     id: 54, 
-    name: 'valoresCoresAntiCores', 
-    image: valoresCoresAntiCores,
+    name: 'informativoUniao', 
+    image: informativoUniao,
     info: true
   },
   {  
     id: 55, 
-    name: 'upBlue', 
-    image: upBlue 
+    name: 'valoresCoresAntiCores', 
+    image: valoresCoresAntiCores,
+    info: true
   },
 ]
