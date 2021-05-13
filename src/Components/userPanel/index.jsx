@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container } from './style'
 import { useController } from '../../Providers/Controller'
 
-function UserPanel() {
+function UserPanel({ret = 0}) {
+  const [state, setstate] = useState(ret)
+
   let valueLhcb
 
   const { data } = useController()
