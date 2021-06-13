@@ -3,6 +3,7 @@ import { Container, Image, CardsOnTable } from './style'
 import TableImage from '../../Images/Table.png'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
+import startCheckWinner from '../../Controller/Winner'
 
 function Table({ round, setRound = () =>{} }) {
 
@@ -16,10 +17,6 @@ function Table({ round, setRound = () =>{} }) {
   const cardsTableStorage = localStorage.getItem("cardsTable")
   
   if (cardsTableStorage) {
-    // const dataStorage = JSON.parse(cardsStorage)
-
-    // playerCard1 = dataStorage.cardOne
-    // playerCard2 = dataStorage.cardtwo
 
     const {cardTableOne, cardTableTwo, cardTableTree, cardTableFour, cardTableFive} = JSON.parse(cardsTableStorage)
 
@@ -35,30 +32,16 @@ function Table({ round, setRound = () =>{} }) {
     cardFour = Math.floor(Math.random() * 52 + 1)
     cardFive = Math.floor(Math.random() * 52 + 1)
 
-    //se todos são iguais 
-
-    console.log('chegou');
-
     let checkNumber = [ cardOne, cardTwo, cardTree, cardFour, cardFive]
-    // let checkNumber = [ 1, 1, 2, 3, 1]
     let checked = []
 
     checkNumber.filter((valorAtual, i, array) => {
       if(!array.indexOf(valorAtual) == i){
-        // let condition = true
-        // while (condition) {
-        //   let random = Math.floor(Math.random() * 5 + 1)
-        //   if (!array.includes(random)) {
-        //     checked.push(random)
-        //     condition = false
-        //   }
-        // }
         checked.push(Math.floor(Math.random() * 5 + 1))
       }else{
         checked.push(valorAtual)
       }
     })
-    console.log(checked);
 
     localStorage.setItem('cardsTable', JSON.stringify({cardTableOne: checked[0], cardTableTwo: checked[1], cardTableTree: checked[2], cardTableFour: checked[3], cardTableFive: checked[4]}))
 
@@ -78,9 +61,13 @@ function Table({ round, setRound = () =>{} }) {
     class2 = false 
     class3 = false 
   }else if (round.round >= 5) {
-    localStorage.removeItem('cardsTable')
-    localStorage.removeItem('cards')
-    window.location.reload()
+    startCheckWinner()
+    // localStorage.removeItem('cardsTable')
+    // localStorage.removeItem('cards')
+    // localStorage.removeItem('cardsCompetitorsALICE')
+    // localStorage.removeItem('cardsCompetitorsATLAS')
+    // localStorage.removeItem('cardsCompetitorsCMS')
+    // window.location.reload(true)
   }
 
 

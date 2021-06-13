@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import Slider from '../Slider'
 import Pot from '../Pot'
 import { Container, BettingButton,  Fold, SliderControll } from './style'
-import UserPanel from '../userPanel'
+import startCheckWinner from '../../Controller/Winner'
 
-function Actions({ round, setRound = () => {}}) {
+function Actions({ setRound = () => {} }) {
   const [ count, setCount ] = useState({valor: 0})
   const [ controller, setController ] = useState({total: 0})
   const [ controllerRound, setControllerRound ] = useState(1)
+  const lhcbStorage = localStorage.getItem("lhcb")
   let valueLhcb
 
   const apostar = () =>{
@@ -15,9 +16,8 @@ function Actions({ round, setRound = () => {}}) {
       alert('O valor não pode ser menor que "0"')
     }else{
       setController({total: (count.valor + controller.total)})
-      setControllerRound(parseInt(controllerRound) + parseInt(1))
+      setControllerRound(parseInt(controllerRound) + 1)
       setRound({round: controllerRound})
-      const lhcbStorage = localStorage.getItem("lhcb");
     
       if (lhcbStorage) {
         const dataStorage = JSON.parse(lhcbStorage)
@@ -29,23 +29,26 @@ function Actions({ round, setRound = () => {}}) {
     }
   }
 
-  const correr = ()=>{
-    localStorage.removeItem('cardsTable')
-    localStorage.removeItem('cards')
-    window.location.reload()
-  }
-
- 
   return (
     <Container>
-      <BettingButton onClick={apostar}>Pagar: { count.valor }</BettingButton>
-      <Fold onClick={correr}>Correr</Fold>
+      <BettingButton onClick={ apostar }>Pagar: { count.valor }</BettingButton>
+      <Fold onClick={ correr }>Correr</Fold>
       <Pot bet={controller.total} />
       <SliderControll>
-        <Slider  controller={setCount}/>
+        <Slider  controller={ setCount }/>
       </SliderControll>
     </Container>
   )
+}
+
+const correr = ()=>{
+  startCheckWinner()
+  // localStorage.removeItem('cardsTable')
+  // localStorage.removeItem('cards')
+  // localStorage.removeItem('cardsCompetitorsALICE')
+  // localStorage.removeItem('cardsCompetitorsATLAS')
+  // localStorage.removeItem('cardsCompetitorsCMS')
+  // window.location.reload(true)
 }
 
 export default Actions

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Image } from './style'
-import { cartas } from '../../Images'
+import cartas from '../../Images'
 
 function CardsTable({ index = null, classControll }) {
 

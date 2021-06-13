@@ -23,7 +23,7 @@ function UserPanel({ret = 0}) {
     <Container>
       <label htmlFor="">LHCb</label>
         <div className="break" style={{'flex-basis': '100%', 'height': '1px', 'background-color': '#F7F7F7',  'box-shadow': '5px 1px 17px #ffffff'}}></div>
-      <label htmlFor="">{valueLhcb}</label>
+      <label htmlFor="">{valueLhcb > 0 ? valueLhcb : 0}</label>
     </Container>
   )
 }

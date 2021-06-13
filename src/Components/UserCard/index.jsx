@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../CardGame'
-import { cartas } from '../../Images'
+import cartas from '../../Images'
 import { useController } from '../../Providers/Controller'
 
 function UserCard() {
