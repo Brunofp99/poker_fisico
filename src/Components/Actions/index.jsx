@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import Slider from '../Slider'
 import Pot from '../Pot'
 import { Container, BettingButton,  Fold, SliderControll } from './style'
-import startCheckWinner from '../../Controller/Winner'
 
 function Actions({ setRound = () => {} }) {
   const [ count, setCount ] = useState({valor: 0})
@@ -48,7 +47,6 @@ const refreshAll = ()=>{
 }
 
 const correr = ()=>{
-  startCheckWinner()
   localStorage.removeItem('cardsTable')
   localStorage.removeItem('cards')
   localStorage.removeItem('cardsCompetitorsALICE')
