@@ -37,8 +37,14 @@ function Actions({ setRound = () => {} }) {
       <SliderControll>
         <Slider  controller={ setCount }/>
       </SliderControll>
+      <BettingButton onClick={ refreshAll }>Recomeçar Jogo</BettingButton>
     </Container>
   )
+}
+
+const refreshAll = ()=>{
+  localStorage.clear();
+  window.location.reload(true);
 }
 
 const correr = ()=>{
