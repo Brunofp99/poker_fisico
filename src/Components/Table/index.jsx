@@ -3,7 +3,7 @@ import { Container, Image, CardsOnTable } from './style'
 import TableImage from '../../Images/Table.png'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
-import startCheckWinner from '../../Controller/Winner'
+import Winner from '../../Controller/Winner'
 
 function Table({ round, setRound = () =>{} }) {
 
@@ -61,13 +61,7 @@ function Table({ round, setRound = () =>{} }) {
     class2 = false 
     class3 = false 
   }else if (round.round >= 5) {
-    startCheckWinner()
-    // localStorage.removeItem('cardsTable')
-    // localStorage.removeItem('cards')
-    // localStorage.removeItem('cardsCompetitorsALICE')
-    // localStorage.removeItem('cardsCompetitorsATLAS')
-    // localStorage.removeItem('cardsCompetitorsCMS')
-    // window.location.reload(true)
+    Winner()
   }
 
 

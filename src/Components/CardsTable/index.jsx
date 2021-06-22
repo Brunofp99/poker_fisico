@@ -12,7 +12,6 @@ function CardsTable({ index = null, classControll }) {
             return <Image src={value.image} alt=""/>
           }
         })
-
       }
     </Container>
   )

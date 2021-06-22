@@ -6,6 +6,8 @@ function Pot({bet = 0}) {
 
   total = sum + total
 
+  localStorage.setItem('pot', total)
+
   return (
     <Container>
         <span>Pot:</span>

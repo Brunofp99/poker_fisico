@@ -13,7 +13,7 @@ function Actions({ setRound = () => {} }) {
 
   const apostar = () =>{
     if (count.valor === 0) {
-      alert('O valor não pode ser menor que "0"')
+      alert('O valor não pode ser menor que "0".')
     }else{
       setController({total: (count.valor + controller.total)})
       setControllerRound(parseInt(controllerRound) + 1)
@@ -43,12 +43,12 @@ function Actions({ setRound = () => {} }) {
 
 const correr = ()=>{
   startCheckWinner()
-  // localStorage.removeItem('cardsTable')
-  // localStorage.removeItem('cards')
-  // localStorage.removeItem('cardsCompetitorsALICE')
-  // localStorage.removeItem('cardsCompetitorsATLAS')
-  // localStorage.removeItem('cardsCompetitorsCMS')
-  // window.location.reload(true)
+  localStorage.removeItem('cardsTable')
+  localStorage.removeItem('cards')
+  localStorage.removeItem('cardsCompetitorsALICE')
+  localStorage.removeItem('cardsCompetitorsATLAS')
+  localStorage.removeItem('cardsCompetitorsCMS')
+  window.location.reload(true)
 }
 
 export default Actions

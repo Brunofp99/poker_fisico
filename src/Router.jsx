@@ -5,6 +5,7 @@ import Game from './Pages/Game'
 import UserCard from './Components/UserCard'
 import UserPanel from './Components/userPanel'
 import { CardControll } from './styleGlobal' 
+import Winner from './Controller/Winner'
 
 export default function router() {
   return (
@@ -13,12 +14,15 @@ export default function router() {
         {/* <Route exact path="/">
           <PickPlayer />
         </Route> */}
-        <Route path="/">
+        <Route exact path="/">
           <Game />
           <CardControll>
-          <UserCard />
-          <UserPanel />
-        </CardControll>
+            <UserCard />
+            <UserPanel />
+          </CardControll>
+        </Route>
+        <Route exact path="/winner">
+          <Winner />
         </Route>
       </Switch>
     </Router>
