@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Image, CardsOnTable } from './style'
-import TableImage from '../../Images/Table.png'
+import TableImage from '../../Images/table.png'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
 import Winner from '../../Controller/Winner'
