@@ -14,7 +14,8 @@ function Actions({ setRound = () => {} }) {
     if (count.valor === 0) {
       alert('O valor não pode ser menor que "0".')
     }else{
-      setController({total: (count.valor + controller.total)})
+      let valorTodasApostas = count.valor * 3
+      setController({total: (valorTodasApostas + controller.total)})
       setControllerRound(parseInt(controllerRound) + 1)
       setRound({round: controllerRound})
     
