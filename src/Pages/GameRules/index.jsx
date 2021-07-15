@@ -1,5 +1,5 @@
 import React from 'react';
-// import RulesImage from '../../Images/rules.png';
+import RulesImage from '../../Images/rules.png';
 import { Link } from 'react-router-dom';
 import './style.css';
 import { Col, Container, Row, Button } from 'react-bootstrap';
@@ -114,7 +114,7 @@ function index() {
           as apostas da mesa (pote). <br />
         </p>
         {/*------------------------ <h1>TABELA</h1> --------------------*/}
-        {/* <img src={RulesImage} alt="regras" /> */}
+        <img src={RulesImage} alt="regras" />
         <h2>Ordem de importância</h2>
         <p>Atomic Flush = Próton (uud) + Elétron (e)</p>
         <p>Cosmic Flush = Bárion + Méson</p>
