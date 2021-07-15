@@ -1,5 +1,5 @@
 import React from 'react';
-import RulesImage from '../../Images/Rules.PNG';
+import RulesImage from '../../Images/Rules.png';
 import { Link } from 'react-router-dom';
 import './style.css';
 import { Col, Container, Row, Button } from 'react-bootstrap';
