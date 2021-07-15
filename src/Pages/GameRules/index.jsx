@@ -24,7 +24,7 @@ function index() {
             pelo Professor Doutor Hélio Takai. Nesta versão digital Beta, 
             o jogo está sendo desenvolvido pelo professor Francisco Amaral, 
             o qual faz parte do <b>Grupo de Extensão, Divulgação e Pesquisa em Física – GEDEP </b>  
-            e pelo graduando em Ciência da Computação e Desenvolvedor Pleno Bruno Falce Pretende-se com este jogo, 
+            e pelo graduando em Ciência da Computação e Desenvolvedor Pleno Bruno Falce. Pretende-se com este jogo, 
             ensinar física de partículas elementares para alunos do ensino 
             médio de uma forma lúdica.
           </p>
@@ -114,7 +114,13 @@ function index() {
           as apostas da mesa (pote). <br />
         </p>
         {/*------------------------ <h1>TABELA</h1> --------------------*/}
-        <img src={RulesImage} alt="regras" />
+        <Row>
+          <Col md={2}></Col>
+          <Col md='auto'>
+            <img src={RulesImage} alt="regras" />
+          </Col>
+          <Col md='auto'></Col>
+        </Row>
         <h2>Ordem de importância</h2>
         <p>Atomic Flush = Próton (uud) + Elétron (e)</p>
         <p>Cosmic Flush = Bárion + Méson</p>
