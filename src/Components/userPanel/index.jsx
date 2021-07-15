@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Container } from './style'
 import { useController } from '../../Providers/Controller'
 
 function UserPanel({ret = 0}) {
-  const [state, setstate] = useState(ret)
+  // const [state, setstate] = useState(ret)
 
   let valueLhcb
 

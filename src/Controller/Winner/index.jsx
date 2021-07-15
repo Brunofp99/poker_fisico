@@ -116,7 +116,7 @@ function Winner(){
   if (response === 'maior') {
     let res = window.confirm("Parabéns você foi o vencedor! deseja jogar mais ?")
 
-    if ( res == true ) {
+    if ( res === true ) {
       let pot = parseInt(localStorage.getItem('pot'))
       let lhcbPot = JSON.parse(localStorage.getItem('lhcb'))
       let total = 0
@@ -138,7 +138,7 @@ function Winner(){
   }else{
     let res = window.confirm("Que pena não foi dessa vez mas tente de novo !")
 
-    if ( res == true ) {
+    if ( res === true ) {
       localStorage.removeItem('cardsTable')
       localStorage.removeItem('cards')
       localStorage.removeItem('cardsCompetitorsALICE')

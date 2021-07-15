@@ -6,15 +6,17 @@ import UserCard from './Components/UserCard'
 import UserPanel from './Components/userPanel'
 import { CardControll } from './styleGlobal' 
 import Winner from './Controller/Winner'
+import Rules from './Pages/GameRules'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function router() {
   return (
     <Router>
       <Switch>
-        {/* <Route exact path="/">
-          <PickPlayer />
-        </Route> */}
         <Route exact path="/">
+          <Rules />
+        </Route>
+        <Route exact path="/game">
           <Game />
           <CardControll>
             <UserCard />
