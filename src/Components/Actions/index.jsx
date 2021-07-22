@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import Slider from '../Slider'
-import Pot from '../Pot'
-import { Container, BettingButton,  Fold, SliderControll } from './style'
+import React, { useState } from 'react';
+import Slider from '../Slider';
+import Pot from '../Pot';
+import { Container, BettingButton,  Fold, SliderControll } from './style';
+import { Button } from 'react-bootstrap'
 
 function Actions({ setRound = () => {} }) {
   const [ count, setCount ] = useState({valor: 0})
@@ -9,6 +10,12 @@ function Actions({ setRound = () => {} }) {
   const [ controllerRound, setControllerRound ] = useState(1)
   const lhcbStorage = localStorage.getItem("lhcb")
   let valueLhcb
+
+  let styleDefault = {
+    'margin-right': '10px',
+    'margin-left': '10px',
+    'margin-top': '10px'
+  }
 
   const apostar = () =>{
     if (count.valor === 0) {
@@ -31,13 +38,13 @@ function Actions({ setRound = () => {} }) {
 
   return (
     <Container>
-      <BettingButton onClick={ apostar }>Pagar: { count.valor }</BettingButton>
-      <Fold onClick={ correr }>Correr</Fold>
+      <Button onClick={ apostar } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Pagar: { count.valor }</Button>
+      <Button onClick={ correr } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Correr</Button>
       <Pot bet={controller.total} />
       <SliderControll>
         <Slider  controller={ setCount }/>
       </SliderControll>
-      <BettingButton onClick={ refreshAll }>Recomeçar Jogo</BettingButton>
+      <Button onClick={ refreshAll } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Recomeçar Jogo</Button>
     </Container>
   )
 }
