@@ -4,6 +4,8 @@ import TableImage from '../../Images/table.png'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
 import Winner from '../../Controller/Winner'
+import {Button, Row, Col} from 'react-bootstrap'
+import Modal from '../Modal'
 
 function Table({ round, setRound = () =>{} }) {
 
@@ -66,17 +68,25 @@ function Table({ round, setRound = () =>{} }) {
 
 
   return (
-    <Container>
-      {/* player left */}
-      <Competitors left='6%' top='38%' name='ATLAS' /> 
+    <Row>
+      <Row>
+        <Col>
+          <Modal />
+        </Col>
+        <Col>
+          <Competitors left='6%' top='38%' name='ATLAS' /> 
+        </Col>
+        <Col></Col>
+      </Row>
 
-      {/* player top */}
-      <Competitors left='47%' name='ALICE' />
+      <Col>
+        <Competitors left='47%' name='ALICE' />
+      </Col>
 
-      {/* player right */}
-      <Competitors right='6%' top='38%' name='CMS' />
+      <Col>
+        <Competitors right='6%' top='38%' name='CMS' />
+      </Col>
 
-      <Image src={TableImage} alt=""/> 
       <CardsOnTable>
         <CardsTable index={cardOne} classControll={class1}/>
         <CardsTable index={cardTwo} classControll={class1}/>
@@ -84,7 +94,7 @@ function Table({ round, setRound = () =>{} }) {
         <CardsTable index={cardFour} classControll={class2}/>
         <CardsTable index={cardFive} classControll={class3}/>
       </CardsOnTable>
-    </Container>
+    </Row>
   )
 }
 

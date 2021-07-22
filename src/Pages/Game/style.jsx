@@ -41,11 +41,11 @@ export const Row = styled.div`
   display: flex;
   grid-column-start: 1;
   grid-column-end: 4;
-  grid-row-start: 3;
-  grid-row-end: 4; 
+  grid-row-start: 4;
+  grid-row-end:5; 
   display: grid;
   grid-gap: 20%;
-  height: 15vh;
+  height: 10vh;
   background-color: black;
   bottom: 0px;
 `

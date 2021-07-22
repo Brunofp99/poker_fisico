@@ -1,0 +1,11 @@
+
+.rulesLegend{
+  font-family: 'Dela Gothic One';
+  width: 100%;
+  background: radial-gradient(#6be664, #285226);
+  height: 100vh;
+} 
+
+a{
+  text-decoration: none;
+}
