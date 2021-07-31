@@ -115,7 +115,7 @@ function Winner(){
 
   if (response === 'maior') {
     let res = window.confirm("Parabéns você foi o vencedor! deseja jogar mais ?")
-
+    
     if ( res === true ) {
       let pot = parseInt(localStorage.getItem('pot'))
       let lhcbPot = JSON.parse(localStorage.getItem('lhcb'))

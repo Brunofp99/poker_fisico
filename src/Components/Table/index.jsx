@@ -4,7 +4,7 @@ import TableImage from '../../Images/table.png'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
 import Winner from '../../Controller/Winner'
-import {Button, Row, Col} from 'react-bootstrap'
+import { Row, Col} from 'react-bootstrap'
 import Modal from '../Modal'
 
 function Table({ round, setRound = () =>{} }) {

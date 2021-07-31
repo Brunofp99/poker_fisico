@@ -12,14 +12,14 @@ function ModalRules() {
     <>
       <Button onClick={handleShow} style={{  'width': '20%', 'height': '100%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c', 'margin-right': 'auto' }}>?</Button>
 
-      <Modal size="lg" show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+      <Modal size="lg" show={show} onHide={handleClose} >
+        <Modal.Header>
           <Modal.Title>Regras das Cartas</Modal.Title>
         </Modal.Header>
-        <Modal.Body><img src={ImageRules}></img></Modal.Body>
+        <Modal.Body><img src={ImageRules} alt="Combinações possíveis" /></Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose}>
-            Close
+            Fechar
           </Button>
         </Modal.Footer>
       </Modal>

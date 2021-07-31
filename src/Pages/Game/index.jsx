@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { View, Column } from './style'
 import Actions from '../../Components/Actions'
 import Table from '../../Components/Table'
 import { Container, Row, Col } from 'react-bootstrap'

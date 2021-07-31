@@ -9,7 +9,7 @@ function CardsTable({ index = null, classControll }) {
       {
         cartas.map((value, i, array)=>{
           if (i === index && value.info !== true) {
-            return <Image src={value.image} alt=""/>
+            return <Image src={value.image} alt="Não foi possível carregar a imagem"/>
           }
         })
       }
