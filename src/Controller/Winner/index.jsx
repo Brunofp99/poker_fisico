@@ -2,6 +2,10 @@ import React from 'react'
 import cartas from '../../Images'
 import { atomic, meson, barion, leptons, neutrinos, empty, coringa } from '../Combinations' // proxima versão
 
+let  imagemCardOne
+let  imagemCardTwo
+let cartasMesa = []
+
 function startCheckWinner(){
   const lhcb  = JSON.parse(localStorage.getItem("cards"))
   const alice = JSON.parse(localStorage.getItem("cardsCompetitorsALICE"))
@@ -15,7 +19,6 @@ function startCheckWinner(){
   let cmsSiglas  = []
   let tableSiglas  = []
 
-  let ganhador = ''
 
   console.log(lhcb);
   
@@ -41,6 +44,8 @@ function startCheckWinner(){
       
     }
   })
+  
+  cartasMesa = [ table.cardTableOne, table.cardTableTwo, table.cardTableTree, table.cardTableFour, table.cardTableFive ]
 
   // testar apenas as 4 melhore e depois as 4 menores
   let verificacaoEsquerdaTable = ''
@@ -269,6 +274,186 @@ cmsSiglas.forEach((el, i, array) =>{
     }
 
     localStorage.setItem('lhcb', JSON.stringify({lhcb: total}))
+
+    result = 'LHCB'
+    cartas.forEach( (el, i, array)=>{
+      if ( el.id === lhcb.cardOne ) {
+        imagemCardOne = el        
+      }
+      if (el.id === lhcb.cardTwo) {
+        imagemCardTwo = el
+      }
+    })
+
+  }else if( resultAlice === `maior`){
+    let pot = parseInt(localStorage.getItem('pot'))
+    let alicePot = JSON.parse(localStorage.getItem('ALICE'))
+    let total = 0
+
+    if (alicePot.ALICE > 0) {
+      total = alicePot.ALICE + pot
+    }
+
+    localStorage.setItem('ALICE', JSON.stringify({ALICE: total}))
+
+    result = 'ALICE'
+    cartas.forEach( (el, i, array)=>{
+      if ( el.id === alice.cardOne ) {
+        imagemCardOne = el        
+      }
+      if (el.id === alice.cardTwo) {
+        imagemCardTwo = el
+      }
+    })
+
+  }else if( resultAtlas === `maior`){
+    let pot = parseInt(localStorage.getItem('pot'))
+    let atlasPot = JSON.parse(localStorage.getItem('ATLAS'))
+    let total = 0
+
+    if (atlasPot.ATLAS > 0) {
+      total = atlasPot.ATLAS + pot
+    }
+
+    localStorage.setItem('ATLAS', JSON.stringify({ATLAS: total}))
+
+    result = 'ATLAS'
+    cartas.forEach( (el, i, array)=>{
+      if ( el.id === atlas.cardOne ) {
+        imagemCardOne = el        
+      }
+      if (el.id === atlas.cardTwo) {
+        imagemCardTwo = el
+      }
+    })
+  }else if( resultCms === `maior`){
+    let pot = parseInt(localStorage.getItem('pot'))
+    let cmsPot = JSON.parse(localStorage.getItem('CMS'))
+    let total = 0
+
+    if (cmsPot.CMS > 0) {
+      total = cmsPot.CMS + pot
+    }
+
+    localStorage.setItem('CMS', JSON.stringify({CMS: total}))
+
+    result = 'CMS'
+    cartas.forEach( (el, i, array)=>{
+      if ( el.id === cms.cardOne ) {
+        imagemCardOne = el        
+      }
+      if (el.id === cms.cardTwo) {
+        imagemCardTwo = el
+      }
+    })
+  }else{
+    let controller = [ 'CMS', 'ATLAS', 'ALICE', 'LHCB']
+
+    if (resultCms) {
+      delete controller['CMS']
+    }
+    if (resultAlice) {
+      delete controller['ALICE']
+    }
+    if (resultAtlas) {
+      delete controller['ATLAS']
+    }
+    if (resultLHCb) {
+      delete controller['LHCB']
+    }
+
+    if (controller.length > 0) {
+      let max = controller.length - 1
+      let numero = Math.floor(Math.random() * (max - 0 + 1)) + 0;
+
+      controller.forEach((el, i) =>{
+        if (i === numero) {
+          result = el
+        }
+      })
+      
+    }else{
+      result = 'LHCB'
+    }
+    
+
+
+    if (result === 'CMS') {
+      result = 'CMS'
+      let pot = parseInt(localStorage.getItem('pot'))
+      let cmsPot = JSON.parse(localStorage.getItem('CMS'))
+      let total = 0
+  
+      if (cmsPot.CMS > 0) {
+        total = cmsPot.CMS + pot
+      }
+  
+      localStorage.setItem('CMS', JSON.stringify({CMS: total}))
+      cartas.forEach( (el, i, array)=>{
+        if ( el.id === cms.cardOne ) {
+          imagemCardOne = el        
+        }
+        if (el.id === cms.cardTwo) {
+          imagemCardTwo = el
+        }
+      })
+    }else if(result === 'ATLAS'){
+      result = 'ATLAS'
+      let pot = parseInt(localStorage.getItem('pot'))
+      let atlasPot = JSON.parse(localStorage.getItem('ATLAS'))
+      let total = 0
+
+      if (atlasPot.ATLAS > 0) {
+       total = atlasPot.ATLAS + pot
+      }
+
+      localStorage.setItem('ATLAS', JSON.stringify({ATLAS: total}))
+      cartas.forEach( (el, i, array)=>{
+        if ( el.id === atlas.cardOne ) {
+          imagemCardOne = el        
+        }
+        if (el.id === atlas.cardTwo) {
+          imagemCardTwo = el
+        }
+      })
+    }else if(result === 'ALICE'){
+      result = 'ALICE'
+      let pot = parseInt(localStorage.getItem('pot'))
+      let alicePot = JSON.parse(localStorage.getItem('ALICE'))
+      let total = 0
+  
+      if (alicePot.ALICE > 0) {
+        total = alicePot.ALICE + pot
+      }
+  
+      localStorage.setItem('ALICE', JSON.stringify({ALICE: total}))
+      cartas.forEach( (el, i, array)=>{
+        if ( el.id === alice.cardOne ) {
+          imagemCardOne = el        
+        }
+        if (el.id === alice.cardTwo) {
+          imagemCardTwo = el
+        }
+      })
+    }else if (result === 'LHCB'){
+      let pot = parseInt(localStorage.getItem('pot'))
+      let lhcbPot = JSON.parse(localStorage.getItem('lhcb'))
+      let total = 0
+  
+      if (lhcbPot.lhcb > 0) {
+        total = lhcbPot.lhcb + pot
+      }
+  
+      localStorage.setItem('lhcb', JSON.stringify({lhcb: total}))
+      cartas.forEach( (el, i, array)=>{
+        if ( el.id === lhcb.cardOne ) {
+          imagemCardOne = el        
+        }
+        if (el.id === lhcb.cardTwo) {
+          imagemCardTwo = el
+        }
+      })
+    }
   }
 
  return result
@@ -277,44 +462,7 @@ cmsSiglas.forEach((el, i, array) =>{
 
 function Winner(){
   let response = startCheckWinner()
-  return { winner: response }
-
-  if (response === 'maior') {
-    let res = window.confirm("Parabéns você foi o vencedor! deseja jogar mais ?")
-    
-    if ( res === true ) {
-      let pot = parseInt(localStorage.getItem('pot'))
-      let lhcbPot = JSON.parse(localStorage.getItem('lhcb'))
-      let total = 0
-
-      if (lhcbPot.lhcb > 0) {
-        total = lhcbPot.lhcb + pot
-      }
-
-      localStorage.setItem('lhcb', JSON.stringify({lhcb: total}))
-      localStorage.removeItem('cardsTable')
-      localStorage.removeItem('cards')
-      localStorage.removeItem('cardsCompetitorsALICE')
-      localStorage.removeItem('cardsCompetitorsATLAS')
-      localStorage.removeItem('cardsCompetitorsCMS')
-      window.location.reload(true)
-    }else{
-      window.close()
-    }
-  }else{
-    let res = window.confirm("Que pena não foi dessa vez mas tente de novo !")
-
-    if ( res === true ) {
-      localStorage.removeItem('cardsTable')
-      localStorage.removeItem('cards')
-      localStorage.removeItem('cardsCompetitorsALICE')
-      localStorage.removeItem('cardsCompetitorsATLAS')
-      localStorage.removeItem('cardsCompetitorsCMS')
-      window.location.reload(true)
-    }else{
-      window.close()
-    }
-  }
+  return { winner: response, cardOne: imagemCardOne, cardTwo: imagemCardTwo, cartasDaMesa: cartasMesa }
 }  
 
 

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Game from './Pages/Game'
 import UserCard from './Components/UserCard'
 import UserPanel from './Components/userPanel'
+import ModalWinner from './Components/ModalWinner'
 import { CardControll } from './styleGlobal' 
 import Winner from './Controller/Winner'
 import Rules from './Pages/GameRules'
@@ -22,6 +23,7 @@ export default function router() {
             <UserCard />
             <UserPanel />
           </CardControll>
+          <ModalWinner />
         </Route>
         <Route exact path="/winner">
           <Winner />

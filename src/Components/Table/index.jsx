@@ -73,7 +73,6 @@ function Table({ round, setRound = () =>{} }) {
       <Row>
         <Col>
           <Modal />
-          <ModalWinner />
         </Col>
         <Col>
           <Competitors left='6%' top='38%' name='ATLAS' /> 

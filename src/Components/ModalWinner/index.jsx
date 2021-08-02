@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import {Button, Modal} from 'react-bootstrap'
+import {Button, Modal, Row, Col} from 'react-bootstrap'
 import Card from '../Card'
 import Winner from '../../Controller/Winner'
+import cartas from '../../Images'
 
 function ModalRules({ ganhador = ''}) {
 
@@ -10,8 +11,6 @@ function ModalRules({ ganhador = ''}) {
   const showModal = () =>{
     setShow(true);
   }
-
-  let cardHandOne = '', cardHandTwo = ''
 
   const newGame = () =>{
     localStorage.removeItem('cardsTable')
@@ -26,28 +25,50 @@ function ModalRules({ ganhador = ''}) {
   const endGame = () =>{
     window.close()
   }
-  //se o ganhador for o lhcb
-  if(ganhador === 'LHCb'){}
-  //se o ganhador for o Atlas
-  else if(ganhador === 'Atlas'){}
-  //se o ganhador for o Alice
-  else if(ganhador === 'Alice'){}
-  //se o ganhador for o Cms
-  else if(ganhador === 'CMS'){}
 
   let response = Winner();
+  console.log(response.cartasDaMesa);
 
   return (
     <>
-      <Button id="X__button_recive_click__X" onClick={showModal} hidden={true} style={{  'width': '20%', 'height': '100%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c', 'margin-right': 'auto' }}>?</Button>
+      <Button id="X__button_recive_click__X" onClick={ showModal } hidden={true}  style={{  'width': '20%', 'height': '100%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c', 'margin-right': 'auto' }}>?</Button>
 
       <Modal size="lg" show={ show } onHide={newGame}>
         <Modal.Header>
-          <Modal.Title>Parabéns { ganhador }</Modal.Title>
+          <Modal.Title>Parabéns { response.winner }</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <Card image={ cardHandOne } />
-          <Card image={ cardHandTwo } />
+        <Modal.Body style={{height: '500px'}}>
+          <Row>
+          <h4 style={{'margin-left': '12px'}}>Mão</h4>
+            <Col md={2}>
+              <Card image={ response.cardOne.image } />
+            </Col>
+            <Col md={2}>
+              <Card image={ response.cardTwo.image } />
+            </Col>
+          </Row>
+          <h4 style={{'margin-top': '200px', 'margin-left': '12px'}} >Mesa</h4>
+          <Row style={{'margin-top': '10px'}}>
+            {
+              cartas.map((el, i , array) =>{
+                if (el.id == response.cartasDaMesa[0] ) {
+                  return <Col md={2}><Card image={ el.image } /></Col>
+                }
+                else if (el.id == response.cartasDaMesa[1] ) {
+                return  <Col md={2}><Card image={ el.image } /></Col>
+                }
+                else if (el.id == response.cartasDaMesa[2] ) {
+                  return <Col md={2}><Card image={ el.image } /></Col>
+                }
+                else if (el.id == response.cartasDaMesa[3] ) {
+                  return <Col md={2}><Card image={ el.image } /></Col>
+                }
+                else if (el.id == response.cartasDaMesa[4] ) {
+                  return <Col md={2}><Card image={ el.image } /></Col>
+                }
+              })
+            }
+          </Row>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={ newGame }>
