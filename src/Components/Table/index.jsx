@@ -6,6 +6,7 @@ import Competitors from '../Competitors'
 import Winner from '../../Controller/Winner'
 import { Row, Col} from 'react-bootstrap'
 import Modal from '../Modal'
+import ModalWinner from '../ModalWinner'
 
 function Table({ round, setRound = () =>{} }) {
 
@@ -63,7 +64,7 @@ function Table({ round, setRound = () =>{} }) {
     class2 = false 
     class3 = false 
   }else if (round.round >= 5) {
-    Winner()
+    document.getElementById("X__button_recive_click__X").click();
   }
 
 
@@ -72,6 +73,7 @@ function Table({ round, setRound = () =>{} }) {
       <Row>
         <Col>
           <Modal />
+          <ModalWinner />
         </Col>
         <Col>
           <Competitors left='6%' top='38%' name='ATLAS' /> 
