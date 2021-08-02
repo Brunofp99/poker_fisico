@@ -9,7 +9,8 @@ function Game() {
   let styleContainer= {
     'font-family': 'Dela Gothic One',
     'background': 'radial-gradient(#636463, #131313 )',
-    'max-width': '100%'
+    'max-width': '100%',
+    'overflow': 'hidden'
   }
   return (
     <Container style={styleContainer}>
