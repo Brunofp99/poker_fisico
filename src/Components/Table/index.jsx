@@ -8,7 +8,7 @@ import { Row, Col} from 'react-bootstrap'
 import Modal from '../Modal'
 import ModalWinner from '../ModalWinner'
 
-function Table({ round, setRound = () =>{} }) {
+function Table({ round, setRound = () =>{}, disabled = [] }) {
 
 
   localStorage.setItem('round',JSON.stringify(round))

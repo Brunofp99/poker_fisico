@@ -48,7 +48,7 @@ function ModalRules({ ganhador = ''}) {
             </Col>
           </Row>
           <h4 style={{'margin-top': '200px', 'margin-left': '12px'}} >Mesa</h4>
-          <Row style={{'margin-top': '10px'}}>
+          <Row style={{'margin-top': '10px'}}>            
             {
               cartas.map((el, i , array) =>{
                 if (el.id == response.cartasDaMesa[0] ) {

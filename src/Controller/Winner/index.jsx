@@ -18,9 +18,6 @@ function startCheckWinner(){
   let atlasSiglas  = []
   let cmsSiglas  = []
   let tableSiglas  = []
-
-
-  console.log(lhcb);
   
   cartas.forEach( (el, i, array)=>{
     if ((el.id === lhcb.cardOne || el.id === lhcb.cardTwo) && (lhcbSiglas.length < 2)) {
@@ -52,10 +49,9 @@ function startCheckWinner(){
   let verificacaoDireitaTable = ''
   let result = ''
   
-  
 //lhcb
-let resultLHCb
-lhcbSiglas.forEach((el, i, array) =>{
+  let resultLHCb
+  lhcbSiglas.forEach((el, i, array) =>{
     let controllerEsquerda = lhcbSiglas[0] + lhcbSiglas[1]
     let controllerDireita = lhcbSiglas[1] + lhcbSiglas[0]
 
@@ -105,10 +101,9 @@ lhcbSiglas.forEach((el, i, array) =>{
     })
   })
 
-  
 //alice
-let resultAlice
-aliceSiglas.forEach((el, i, array) =>{
+  let resultAlice
+  aliceSiglas.forEach((el, i, array) =>{
     let controllerEsquerda = aliceSiglas[0] + aliceSiglas[1]
     let controllerDireita = aliceSiglas[1] + aliceSiglas[0]
 
@@ -158,10 +153,9 @@ aliceSiglas.forEach((el, i, array) =>{
     })
   })
 
-  
 //atlas
-let resultAtlas
-atlasSiglas.forEach((el, i, array) =>{
+  let resultAtlas
+  atlasSiglas.forEach((el, i, array) =>{
     let controllerEsquerda = atlasSiglas[0] + atlasSiglas[1]
     let controllerDireita = atlasSiglas[1] + atlasSiglas[0]
 
@@ -211,10 +205,9 @@ atlasSiglas.forEach((el, i, array) =>{
     })
   })
 
-  
 //cms
-let resultCms
-cmsSiglas.forEach((el, i, array) =>{
+  let resultCms
+  cmsSiglas.forEach((el, i, array) =>{
     let controllerEsquerda = cmsSiglas[0] + cmsSiglas[1]
     let controllerDireita = cmsSiglas[1] + cmsSiglas[0]
 
@@ -269,10 +262,8 @@ cmsSiglas.forEach((el, i, array) =>{
     let lhcbPot = JSON.parse(localStorage.getItem('lhcb'))
     let total = 0
 
-    if (lhcbPot.lhcb > 0) {
-      total = lhcbPot.lhcb + pot
-    }
-
+    total = lhcbPot.lhcb + pot
+   
     localStorage.setItem('lhcb', JSON.stringify({lhcb: total}))
 
     result = 'LHCB'
@@ -290,9 +281,7 @@ cmsSiglas.forEach((el, i, array) =>{
     let alicePot = JSON.parse(localStorage.getItem('ALICE'))
     let total = 0
 
-    if (alicePot.ALICE > 0) {
-      total = alicePot.ALICE + pot
-    }
+    total = alicePot.ALICE + pot
 
     localStorage.setItem('ALICE', JSON.stringify({ALICE: total}))
 
@@ -311,9 +300,7 @@ cmsSiglas.forEach((el, i, array) =>{
     let atlasPot = JSON.parse(localStorage.getItem('ATLAS'))
     let total = 0
 
-    if (atlasPot.ATLAS > 0) {
-      total = atlasPot.ATLAS + pot
-    }
+    total = atlasPot.ATLAS + pot
 
     localStorage.setItem('ATLAS', JSON.stringify({ATLAS: total}))
 
@@ -331,9 +318,7 @@ cmsSiglas.forEach((el, i, array) =>{
     let cmsPot = JSON.parse(localStorage.getItem('CMS'))
     let total = 0
 
-    if (cmsPot.CMS > 0) {
-      total = cmsPot.CMS + pot
-    }
+    total = cmsPot.CMS + pot
 
     localStorage.setItem('CMS', JSON.stringify({CMS: total}))
 
@@ -375,20 +360,18 @@ cmsSiglas.forEach((el, i, array) =>{
     }else{
       result = 'LHCB'
     }
-    
-
 
     if (result === 'CMS') {
       result = 'CMS'
       let pot = parseInt(localStorage.getItem('pot'))
       let cmsPot = JSON.parse(localStorage.getItem('CMS'))
       let total = 0
-  
-      if (cmsPot.CMS > 0) {
-        total = cmsPot.CMS + pot
-      }
+
+      total = cmsPot.CMS + pot
+      
   
       localStorage.setItem('CMS', JSON.stringify({CMS: total}))
+
       cartas.forEach( (el, i, array)=>{
         if ( el.id === cms.cardOne ) {
           imagemCardOne = el        
@@ -403,11 +386,10 @@ cmsSiglas.forEach((el, i, array) =>{
       let atlasPot = JSON.parse(localStorage.getItem('ATLAS'))
       let total = 0
 
-      if (atlasPot.ATLAS > 0) {
-       total = atlasPot.ATLAS + pot
-      }
-
+      total = atlasPot.ATLAS + pot
+      
       localStorage.setItem('ATLAS', JSON.stringify({ATLAS: total}))
+
       cartas.forEach( (el, i, array)=>{
         if ( el.id === atlas.cardOne ) {
           imagemCardOne = el        
@@ -421,11 +403,9 @@ cmsSiglas.forEach((el, i, array) =>{
       let pot = parseInt(localStorage.getItem('pot'))
       let alicePot = JSON.parse(localStorage.getItem('ALICE'))
       let total = 0
-  
-      if (alicePot.ALICE > 0) {
-        total = alicePot.ALICE + pot
-      }
-  
+
+      total = alicePot.ALICE + pot
+      
       localStorage.setItem('ALICE', JSON.stringify({ALICE: total}))
       cartas.forEach( (el, i, array)=>{
         if ( el.id === alice.cardOne ) {
@@ -436,14 +416,13 @@ cmsSiglas.forEach((el, i, array) =>{
         }
       })
     }else if (result === 'LHCB'){
+      result = 'lhcb'
       let pot = parseInt(localStorage.getItem('pot'))
       let lhcbPot = JSON.parse(localStorage.getItem('lhcb'))
       let total = 0
-  
-      if (lhcbPot.lhcb > 0) {
-        total = lhcbPot.lhcb + pot
-      }
-  
+
+      total = lhcbPot.lhcb + pot
+
       localStorage.setItem('lhcb', JSON.stringify({lhcb: total}))
       cartas.forEach( (el, i, array)=>{
         if ( el.id === lhcb.cardOne ) {
