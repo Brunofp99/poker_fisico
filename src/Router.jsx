@@ -18,12 +18,11 @@ export default function router() {
           <Rules />
         </Route>
         <Route exact path="/game">
-          <Game />
           <CardControll>
             <UserCard />
             <UserPanel />
           </CardControll>
-          <ModalWinner />
+          <Game />
         </Route>
         <Route exact path="/winner">
           <Winner />

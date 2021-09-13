@@ -3,6 +3,7 @@ import Actions from '../../Components/Actions'
 import Table from '../../Components/Table'
 import { Container, Row, Col } from 'react-bootstrap'
 import TableImage from '../../Images/table.png'
+import ModalRules from '../../Components/ModalWinner'
 
 function Game() {
   const [rounds, setRounds] = useState({round: 0})
@@ -26,7 +27,7 @@ function Game() {
           <Actions disabled={disabled} round={rounds} setRound={setRounds} setDisabled={setDisabled} />
         </Col>
       </Row>
-      
+      <ModalRules />
     </Container>
   )
 }

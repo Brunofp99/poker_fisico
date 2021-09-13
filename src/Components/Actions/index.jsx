@@ -39,23 +39,74 @@ function Actions({ setRound = () => {}, setDisabled = () =>{}, disabled = [] }) 
       
       setDisabled(controllerDisabled)
       setController({total: (count.valor + controller.total)})
+      console.log(controllerRound);
       setControllerRound(parseInt(controllerRound) + 1)
       setRound({round: controllerRound})
     }
   }
 
   const apostaBig = () =>{
+    let arrayPlayer = ['CMS','ALICE', 'ATLAS', '']
+    let random = Math.random() * (3 - 0) + 0;
+    let valorBot = 0;
+    // armazena o valor de cada joador
+    let valorLhcb = lhcbStorage.lhcb
+    let  valorCms = CMSStorage.CMS 
+    let  valorAlice = ALICEStorage.ALICE
+    let  valorAtlas = ATLASStorage.ATLAS
+
+    if (arrayPlayer[random] === 'CMS') {
+      valorBot = CMSStorage.CMS
+      localStorage.setItem('CMS', JSON.stringify({CMS: 0}))
+    }else if (arrayPlayer[random] === 'ALICE') {
+      valorBot = ALICEStorage.ALICE
+      localStorage.setItem('ALICE', JSON.stringify({ALICE: 0}))
+    }else if (arrayPlayer[random] === 'ATLAS') {
+      valorBot = ATLASStorage.ATLAS
+      localStorage.setItem('ATLAS', JSON.stringify({ATLAS: 0}))
+    }else{
+      controllerDisabled.push('cms')
+      controllerDisabled.push('alice')
+      controllerDisabled.push('atlas')
+    }
+    
+    //subtrai o valor se ele tiver o suficiente no pot
+    valorLhcb >= 0 ? localStorage.setItem('lhcb', JSON.stringify({lhcb: valorLhcb})) : controllerDisabled.push('lhcb') 
+    valorCms >= valorLhcb ? localStorage.setItem('CMS', JSON.stringify({CMS: valorCms})) : controllerDisabled.push('cms')
+    valorAlice >= valorLhcb ? localStorage.setItem('ALICE', JSON.stringify({ALICE: valorAlice})) : controllerDisabled.push('alice')
+    valorAtlas >= valorLhcb ? localStorage.setItem('ATLAS', JSON.stringify({ATLAS: valorAtlas})) : controllerDisabled.push('atlas')
+    
+    setDisabled(controllerDisabled)
+    setController({total: (valorLhcb + valorBot + controller.total)})
+    console.log(controllerRound);
+    setControllerRound(parseInt(4) + 1)
+    setRound({round: controllerRound})
   }
 
   const apostaSmall = () =>{
-
+    // armazena o valor de cada joador
+    let valorLhcb = lhcbStorage.lhcb - 200
+    let  valorCms = CMSStorage.CMS - 200
+    let  valorAlice = ALICEStorage.ALICE - 200
+    let  valorAtlas = ATLASStorage.ATLAS - 200
+    
+    //subtrai o valor se ele tiver o suficiente no pot
+    valorLhcb >= 200 ? localStorage.setItem('lhcb', JSON.stringify({lhcb: valorLhcb})) : controllerDisabled.push('lhcb') 
+    valorCms >= 200 ? localStorage.setItem('CMS', JSON.stringify({CMS: valorCms})) : controllerDisabled.push('cms')
+    valorAlice >= 200 ? localStorage.setItem('ALICE', JSON.stringify({ALICE: valorAlice})) : controllerDisabled.push('alice')
+    valorAtlas >= 200 ? localStorage.setItem('ATLAS', JSON.stringify({ATLAS: valorAtlas})) : controllerDisabled.push('atlas')
+    
+    setDisabled(controllerDisabled)
+    setController({total: (200 + controller.total)})
+    setControllerRound(parseInt(controllerRound) + 1)
+    setRound({round: controllerRound})
   }
 
   return (
     <Container>
       <Button onClick={ apostar } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Pagar: { count.valor }</Button>
       <Button onClick={ correr } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Correr</Button>
-      <Button onClick={ apostaBig } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Big</Button>
+      <Button onClick={ apostaBig } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>All In</Button>
       <Button onClick={ apostaSmall } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Small</Button>
       <Pot bet={controller.total} />
       <SliderControll>
