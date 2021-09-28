@@ -14,10 +14,10 @@ function startCheckWinner(){
   const table = JSON.parse(localStorage.getItem("cardsTable"))
   
   let lhcbSiglas  = []
-  let aliceSiglas  = []
-  let atlasSiglas  = []
-  let cmsSiglas  = []
-  let tableSiglas  = []
+  let aliceSiglas = []
+  let atlasSiglas = []
+  let cmsSiglas   = []
+  let tableSiglas = []
   
   cartas.forEach( (el, i, array)=>{
     if ((el.id === lhcb.cardOne || el.id === lhcb.cardTwo) && (lhcbSiglas.length < 2)) {
@@ -368,8 +368,7 @@ function startCheckWinner(){
       let total = 0
 
       total = cmsPot.CMS + pot
-      
-  
+
       localStorage.setItem('CMS', JSON.stringify({CMS: total}))
 
       cartas.forEach( (el, i, array)=>{

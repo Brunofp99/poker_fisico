@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from '../Slider';
 import Pot from '../Pot';
-import { Container, BettingButton,  Fold, SliderControll } from './style';
+import { Container, SliderControll } from './style';
 import { Button } from 'react-bootstrap'
 
 function Actions({ setRound = () => {}, setDisabled = () =>{}, disabled = [] }) {
@@ -25,35 +25,42 @@ function Actions({ setRound = () => {}, setDisabled = () =>{}, disabled = [] }) 
     if (count.valor === 0) {
       alert('O valor não pode ser menor que "0".')
     }else{
-      // armazena o valor de cada joador
       let valorLhcb = lhcbStorage.lhcb - count.valor 
       let  valorCms = CMSStorage.CMS - count.valor 
       let  valorAlice = ALICEStorage.ALICE - count.valor
       let  valorAtlas = ATLASStorage.ATLAS - count.valor
-      
-      //subtrai o valor se ele tiver o suficiente no pot
+
+      if(lhcbStorage.lhcb === 0){
+        localStorage.clear();
+        window.location.reload(true);
+      }
+
       valorLhcb >= 0 ? localStorage.setItem('lhcb', JSON.stringify({lhcb: valorLhcb})) : controllerDisabled.push('lhcb') 
       valorCms >= 0 ? localStorage.setItem('CMS', JSON.stringify({CMS: valorCms})) : controllerDisabled.push('cms')
       valorAlice >= 0 ? localStorage.setItem('ALICE', JSON.stringify({ALICE: valorAlice})) : controllerDisabled.push('alice')
       valorAtlas >= 0 ? localStorage.setItem('ATLAS', JSON.stringify({ATLAS: valorAtlas})) : controllerDisabled.push('atlas')
       
       setDisabled(controllerDisabled)
-      setController({total: (count.valor + controller.total)})
-      console.log(controllerRound);
+      localStorage.setItem('disabled', controllerDisabled)
+      setController({total: ((count.valor * 4) + controller.total)})
       setControllerRound(parseInt(controllerRound) + 1)
       setRound({round: controllerRound})
     }
-  }
+  } 
 
   const apostaBig = () =>{
     let arrayPlayer = ['CMS','ALICE', 'ATLAS', '']
     let random = Math.random() * (3 - 0) + 0;
     let valorBot = 0;
-    // armazena o valor de cada joador
-    let valorLhcb = lhcbStorage.lhcb
-    let  valorCms = CMSStorage.CMS 
-    let  valorAlice = ALICEStorage.ALICE
-    let  valorAtlas = ATLASStorage.ATLAS
+    let valorLhcb = lhcbStorage.lhcb;
+    let  valorCms = CMSStorage.CMS;
+    let  valorAlice = ALICEStorage.ALICE;
+    let  valorAtlas = ATLASStorage.ATLAS;
+
+    if(lhcbStorage.lhcb === 0){
+      localStorage.clear();
+      window.location.reload(true);
+    }
 
     if (arrayPlayer[random] === 'CMS') {
       valorBot = CMSStorage.CMS
@@ -69,7 +76,7 @@ function Actions({ setRound = () => {}, setDisabled = () =>{}, disabled = [] }) 
       controllerDisabled.push('alice')
       controllerDisabled.push('atlas')
     }
-    
+
     //subtrai o valor se ele tiver o suficiente no pot
     valorLhcb >= 0 ? localStorage.setItem('lhcb', JSON.stringify({lhcb: valorLhcb})) : controllerDisabled.push('lhcb') 
     valorCms >= valorLhcb ? localStorage.setItem('CMS', JSON.stringify({CMS: valorCms})) : controllerDisabled.push('cms')
@@ -89,6 +96,11 @@ function Actions({ setRound = () => {}, setDisabled = () =>{}, disabled = [] }) 
     let  valorCms = CMSStorage.CMS - 200
     let  valorAlice = ALICEStorage.ALICE - 200
     let  valorAtlas = ATLASStorage.ATLAS - 200
+
+    if(valorLhcb === 0 && controllerRound < 5){
+      localStorage.clear();
+      window.location.reload(true);
+    }
     
     //subtrai o valor se ele tiver o suficiente no pot
     valorLhcb >= 200 ? localStorage.setItem('lhcb', JSON.stringify({lhcb: valorLhcb})) : controllerDisabled.push('lhcb') 

@@ -1,12 +1,9 @@
 import React from 'react'
-import { Container, Image, CardsOnTable } from './style'
-import TableImage from '../../Images/table.png'
+import { CardsOnTable } from './style'
 import CardsTable from '../CardsTable'
 import Competitors from '../Competitors'
-import Winner from '../../Controller/Winner'
 import { Row, Col} from 'react-bootstrap'
 import Modal from '../Modal'
-import ModalWinner from '../ModalWinner'
 
 function Table({ round, setRound = () =>{}, disabled = [] }) {
 
@@ -16,6 +13,9 @@ function Table({ round, setRound = () =>{}, disabled = [] }) {
   let class1 = true
   let class2 = true
   let class3 = true
+  let alice = disabled['alice'] ? true : false
+  let cms = disabled['cms'] ? true : false
+  let atlas = disabled['atlas'] ? true : false
 
   const cardsTableStorage = localStorage.getItem("cardsTable")
   
@@ -74,17 +74,17 @@ function Table({ round, setRound = () =>{}, disabled = [] }) {
         <Col>
           <Modal />
         </Col>
-        <Col>
+        <Col hidden={atlas}>
           <Competitors left='6%' top='38%' name='ATLAS' /> 
         </Col>
         <Col></Col>
       </Row>
 
-      <Col>
+      <Col hiiden={alice}>
         <Competitors left='47%' name='ALICE' />
       </Col>
 
-      <Col>
+      <Col hidden={cms}>
         <Competitors right='6%' top='38%' name='CMS' />
       </Col>
 
