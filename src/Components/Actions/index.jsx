@@ -119,7 +119,7 @@ function Actions({ setRound = () => {}, setDisabled = () =>{}, disabled = [] }) 
       <Button onClick={ apostar } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Pagar: { count.valor }</Button>
       <Button onClick={ correr } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Correr</Button>
       <Button onClick={ apostaBig } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>All In</Button>
-      <Button onClick={ apostaSmall } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Small</Button>
+      {/* <Button onClick={ apostaSmall } style={{ ...styleDefault, 'width': '30%', 'background-color': '#af2e2e', 'border': '1px solid #7e1c1c'}}>Small</Button> */}
       <Pot bet={controller.total} />
       <SliderControll>
         <Slider  controller={ setCount }/>
