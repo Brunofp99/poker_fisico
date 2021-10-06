@@ -24,7 +24,7 @@ export default function router() {
           </CardControll>
           <Game />
         </Route>
-        <Route exact path="/winner">
+        <Route exact path="/#winner">
           <Winner />
         </Route>
       </Switch>

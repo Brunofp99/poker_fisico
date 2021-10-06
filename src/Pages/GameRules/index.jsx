@@ -5,6 +5,7 @@ import './style.css';
 import { Col, Container, Row, Button } from 'react-bootstrap';
 
 function index() {
+  document.querySelector('#html').style.overflow = 'auto'
   return (
     <Container>
       <Col md='auto'></Col>

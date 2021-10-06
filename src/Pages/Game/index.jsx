@@ -14,7 +14,7 @@ function Game() {
     'max-width': '100%',
     'overflow': 'hidden'
   }
-  console.log(disabled);
+  document.querySelector('#html').style.overflow = 'hidden'
   return (
     <Container style={styleContainer}>
       <Row style={{'width': '100%', 'height': '90vh','max-width': '100%', 'max-height': '90vh'}}>
